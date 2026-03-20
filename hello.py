@@ -23,5 +23,5 @@ def hello():
 
 # parameter types are string, int, float, path, uuid
 @app.route("/user/<int:id>")
-def getUser(id):
+def get_user(id):
     return f"Get user {id}"
