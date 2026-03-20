@@ -11,4 +11,4 @@ A simple project with everything you need for a backend Python application
 - Run `pip install Flask` to install Flask
 
 ## RUNNING
-- Run `python -m flask --app hello run`
+- Run `python -m flask --app hello run --debug`
