@@ -15,6 +15,10 @@ A Python Bootstrap project using Django
 ## RUNNING
 - Run `py manage.py runserver`
 
+## UNIT TESTS
+- Run `py manage.py test polls`
+
+
 ## HOW-TO
 - Create project `django-admin startproject bootstrap api`
 - Add app `py manage.py startapp polls`
