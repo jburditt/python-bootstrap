@@ -17,3 +17,4 @@ A Python Bootstrap project using Django
 
 ## HOW-TO
 - Create project `django-admin startproject bootstrap api`
+- Add app `py manage.py startapp polls`
