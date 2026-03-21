@@ -13,7 +13,7 @@ A Python Bootstrap project using Django
 - Add PATH C:\Users\<user>\AppData\Local\Python\pythoncore-3.14-64\Scripts
 
 ## RUNNING
-- Run `py manage.py runserver`
+- Run `py manage.py runserver 8080`
 
 ## UNIT TESTS
 - Run `py manage.py test polls`
