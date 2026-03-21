@@ -1,5 +1,4 @@
-#import Q from django.db.models
-
+from django.db.models import Q
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
@@ -7,12 +6,11 @@ from django.http import JsonResponse
 User = get_user_model()
 
 def search(request, username, email):
-    query = request.GET.get('q')
     users = []
-    if query:
+    if username and email:
         # Search for users where username or email contains the query string
-        # users = User.objects.filter(
-        #     Q(username__icontains=query) | Q(email__icontains=query)
-        # ).distinct()
+        users = User.objects.filter(
+            Q(username__icontains=username) | Q(email__icontains=email)
+        ).distinct()
         users = []
     return JsonResponse(users, safe=False)
