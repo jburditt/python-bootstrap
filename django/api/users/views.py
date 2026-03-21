@@ -2,6 +2,7 @@
 
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 
 User = get_user_model()
 
@@ -14,4 +15,4 @@ def search(request, username, email):
         #     Q(username__icontains=query) | Q(email__icontains=query)
         # ).distinct()
         users = []
-    return render(request, 'search_user.html', {'users': users, 'query': query})
+    return JsonResponse(users, safe=False)
