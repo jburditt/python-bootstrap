@@ -7,10 +7,9 @@ User = get_user_model()
 
 def search(request, username, email):
     users = []
-    if username and email:
+    if username or email:
         # Search for users where username or email contains the query string
-        users = User.objects.filter(
+        users = list(User.objects.filter(
             Q(username__icontains=username) | Q(email__icontains=email)
-        ).distinct()
-        users = []
+        ).distinct().values())
     return JsonResponse(users, safe=False)
