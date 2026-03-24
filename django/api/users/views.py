@@ -7,6 +7,8 @@ User = get_user_model()
 
 def search(request, username, email):
     users = []
+    if username == "email":
+        username = None
     if username or email:
         # Search for users where username or email contains the query string
         users = list(User.objects.filter(
