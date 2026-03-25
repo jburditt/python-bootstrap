@@ -2,6 +2,9 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
+from django.http import JsonResponse
+from .repository import UserRepository
+from datetime import date
 
 User = get_user_model()
 
@@ -15,3 +18,17 @@ def search(request, username, email):
             Q(username__icontains=username) | Q(email__icontains=email)
         ).distinct().values())
     return JsonResponse(users, safe=False)
+
+def create_sample_user(request):
+    user = UserRepository.create_user(
+        username="john_doe",
+        email="john.doe@example.com",
+        first_name="John",
+        last_name="Doe",
+        role=1
+    )
+    return JsonResponse({"id": user.id, "username": user.username})
+
+def list_users(request):
+    users = UserRepository.get_all_users()
+    return JsonResponse({"users": [{"id": u.id, "username": u.username} for u in users]})
