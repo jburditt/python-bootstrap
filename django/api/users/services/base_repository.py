@@ -1,0 +1,56 @@
+from django.db.models.manager import BaseManager
+from typing import Optional, List, TypeVar
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import models
+
+class DatabaseException(Exception):
+    pass
+  
+from enum import StrEnum
+
+class Ordering(StrEnum):
+    asc = "asc"
+    desc = "desc"
+    
+Entity = TypeVar("Entity", bound=models.Model)
+
+class Repository:
+  """Repository for User model database operations."""
+
+  def __init__(self, db: BaseManager[Entity]):
+    self.db = db
+    
+  def get_all_users(self) -> List[Entity]:
+    return list(self.db.all())
+
+  def get_user_by_id(self, user_id: int) -> Optional[Entity]:
+    try:
+      return self.db.get(Entity, id=user_id)
+    except ObjectDoesNotExist:
+      return None
+
+  def create_user(self, username: str, email: str, first_name: str, last_name: str, role: int) -> Entity:
+    return self.db.create(
+      username=username,
+      email=email,
+      first_name=first_name,
+      last_name=last_name,
+      role=role
+    )
+
+  def update_user(self, user_id: int, **kwargs) -> Optional[Entity]:
+    user = self.db.get_user_by_id(self, user_id)
+    if not user:
+      return None
+    for key, value in kwargs.items():
+      setattr(user, key, value)
+    user.save()
+    return user
+
+  def delete_user(self, user_id: int) -> bool:
+    user = self.db.get_user_by_id(self, user_id)
+    if not user:
+      return False
+    user.delete()
+    return True
+
