@@ -33,3 +33,10 @@ def create_sample_user(request):
 def list_users(request):
     users = Repository.all()
     return JsonResponse({"users": [{"id": u.id, "username": u.username} for u in users]})
+
+def get_user(request, user_id):
+    user = Repository.get(user_id)
+    if user:
+        return JsonResponse({"id": user.id, "username": user.username})
+    else:
+        return JsonResponse({"error": "User not found"}, status=404)
