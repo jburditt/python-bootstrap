@@ -21,15 +21,15 @@ def search(request, username, email):
     return JsonResponse(users, safe=False)
 
 def create_sample_user(request):
-    user = Repository.create_user(
-        username="john_doe",
-        email="john.doe@example.com",
-        first_name="John",
-        last_name="Doe",
-        role=1
+    user = Repository.create(
+        username="jburditt",
+        email="jebb.burditt@example.com",
+        first_name="Jebb",
+        last_name="Burditt",
+        role=0
     )
     return JsonResponse({"id": user.id, "username": user.username})
 
 def list_users(request):
-    users = Repository.get_all_users()
+    users = Repository.all()
     return JsonResponse({"users": [{"id": u.id, "username": u.username} for u in users]})

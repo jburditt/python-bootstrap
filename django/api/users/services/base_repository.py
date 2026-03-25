@@ -20,7 +20,7 @@ class Repository:
   def __init__(self, db: BaseManager[Entity]):
     self.db = db
     
-  def get_all_users(self) -> List[Entity]:
+  def all(self) -> List[Entity]:
     return list(self.db.all())
 
   def get_user_by_id(self, user_id: int) -> Optional[Entity]:
@@ -29,14 +29,8 @@ class Repository:
     except ObjectDoesNotExist:
       return None
 
-  def create_user(self, username: str, email: str, first_name: str, last_name: str, role: int) -> Entity:
-    return self.db.create(
-      username=username,
-      email=email,
-      first_name=first_name,
-      last_name=last_name,
-      role=role
-    )
+  def create(self, **kwargs) -> Entity:
+    return self.db.create(**kwargs)
 
   def update_user(self, user_id: int, **kwargs) -> Optional[Entity]:
     user = self.db.get_user_by_id(self, user_id)
