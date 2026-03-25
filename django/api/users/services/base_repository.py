@@ -23,7 +23,7 @@ class Repository:
   def all(self) -> List[Entity]:
     return list(self.db.all())
 
-  def get(self, id: int) -> Optional[Entity]:
+  def get(self, id: object) -> Optional[Entity]:
     try:
       return self.db.get(id=id)
     except ObjectDoesNotExist:
@@ -32,8 +32,8 @@ class Repository:
   def create(self, **kwargs) -> Entity:
     return self.db.create(**kwargs)
 
-  def update_by_id(self, user_id: int, **kwargs) -> Optional[Entity]:
-    user = self.db.get(self, user_id)
+  def update(self, id: object, **kwargs) -> Optional[Entity]:
+    user = self.db.get(id=id)
     if not user:
       return None
     for key, value in kwargs.items():

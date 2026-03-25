@@ -40,3 +40,10 @@ def get_user(request, user_id):
         return JsonResponse({"id": user.id, "username": user.username})
     else:
         return JsonResponse({"error": "User not found"}, status=404)
+    
+def update_user(request):
+    user = Repository.update(2, first_name="Updated", last_name="User")
+    if user:
+        return JsonResponse({"id": user.id, "username": user.username})
+    else:
+        return JsonResponse({"error": "User not found"}, status=404)
