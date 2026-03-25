@@ -3,10 +3,11 @@ from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.http import JsonResponse
+from .models import User
 from .repository import UserRepository
 from datetime import date
 
-User = get_user_model()
+Repository = UserRepository(User.objects)
 
 def search(request, username, email):
     users = []
@@ -20,7 +21,7 @@ def search(request, username, email):
     return JsonResponse(users, safe=False)
 
 def create_sample_user(request):
-    user = UserRepository.create_user(
+    user = Repository.create_user(
         username="john_doe",
         email="john.doe@example.com",
         first_name="John",
@@ -30,5 +31,5 @@ def create_sample_user(request):
     return JsonResponse({"id": user.id, "username": user.username})
 
 def list_users(request):
-    users = UserRepository.get_all_users()
+    users = Repository.get_all_users()
     return JsonResponse({"users": [{"id": u.id, "username": u.username} for u in users]})
