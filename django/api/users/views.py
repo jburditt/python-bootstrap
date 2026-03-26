@@ -13,15 +13,20 @@ logger = logging.getLogger(__name__)
 Repository = UserRepository(User.objects)
 
 class UserViews:
-    def search(request, username, email):
+    def search(request, username, email = None):
         users = []
         if username == "email":
             username = None
         if username or email:
             # Search for users where username or email contains the query string
-            users = list(User.objects.filter(
-                Q(username__icontains=username) | Q(email__icontains=email)
-            ).distinct().values())
+            if (not email):
+                users = list(User.objects.filter(
+                    Q(username__icontains=username)
+                ).distinct().values())
+            else:
+                users = list(User.objects.filter(
+                    Q(username__icontains=username) | Q(email__icontains=email)
+                ).distinct().values())
         return JsonResponse(users, safe=False)
 
     def create_sample_user(request):

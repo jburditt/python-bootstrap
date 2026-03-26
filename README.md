@@ -1,5 +1,7 @@
 # PYTHON DJANGO/FLASK REACT DEMO
 
+![ScreenShot](/screenshot.png)
+
 ## INSTALLATION
 - Clone [python-bootstrap](https://github.com/jburditt/python-bootstrap) repository
 - Clone [react-demo](https://github.com/jburditt/react-demo) repository inside the root folder of 'python-bootstrap' repository
