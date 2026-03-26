@@ -1,5 +1,7 @@
 # PYTHON DJANGO/FLASK REACT DEMO
 
+[Azure Hosted Demo](https://polite-ocean-07716e61e.4.azurestaticapps.net/) - Backend not deployed [yet], just React UI
+
 ![ScreenShot](/screenshot.png)
 
 ## INSTALLATION
@@ -13,6 +15,8 @@
 - Unit tests
 - Polls tutorial implemented from Python documentation
 - File and console logging
+- Terraform infrastructure deployment
+- Basic Github CI/CD
 
 ## TODO
 - Replace Django SQLite with PostgreSQL
