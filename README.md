@@ -1,8 +1,16 @@
 # PYTHON DJANGO/FLASK REACT DEMO
 
-## INSTALLATINO
+## INSTALLATION
 - Clone [python-bootstrap](https://github.com/jburditt/python-bootstrap) repository
 - Clone [react-demo](https://github.com/jburditt/react-demo) repository inside the root folder of 'python-bootstrap' repository
+
+## FEATURES
+- Base Repository to handle CRUD of Django models using Generics and inheritance
+- Lesson examples for range, string format, arrays, deep copy, lists, decorators, hash sets, tuples, etc
+- React integration with Django backend API
+- Unit tests
+- Polls tutorial implemented from Python documentation
+- File and console logging
 
 ## TODO
 - Replace Django SQLite with PostgreSQL

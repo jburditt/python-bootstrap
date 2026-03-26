@@ -1,3 +1,4 @@
+import logging
 from django.db.models import Q
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
@@ -6,6 +7,8 @@ from django.http import JsonResponse
 from .models import User
 from .repository import UserRepository
 from datetime import date
+
+logger = logging.getLogger(__name__)
 
 Repository = UserRepository(User.objects)
 
