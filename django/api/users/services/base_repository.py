@@ -2,15 +2,6 @@ from django.db.models.manager import BaseManager
 from typing import Optional, List, TypeVar
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
-
-class DatabaseException(Exception):
-    pass
-  
-from enum import StrEnum
-
-class Ordering(StrEnum):
-    asc = "asc"
-    desc = "desc"
     
 Entity = TypeVar("Entity", bound=models.Model)
 
@@ -41,8 +32,8 @@ class Repository:
     user.save()
     return user
 
-  def delete_user(self, user_id: int) -> bool:
-    user = self.db.get_user_by_id(self, user_id)
+  def delete(self, id: object) -> bool:
+    user = self.db.get(id=id)
     if not user:
       return False
     user.delete()

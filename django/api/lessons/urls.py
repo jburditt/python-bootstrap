@@ -3,7 +3,7 @@ from . import views
 
 app_name = "lessons"
 urlpatterns = [
-    path("sequences/", views.sequences, name="sequences"),
-    path("tuples/", views.tuples, name="tuples"),
-    path("ranges/", views.ranges, name="ranges"),
-    path("language/", views.language_reference, name="language_reference"),]
+    path("sequences/", views.LessonViews.sequences, name="sequences"),
+    path("tuples/", views.LessonViews.tuples, name="tuples"),
+    path("ranges/", views.LessonViews.ranges, name="ranges"),
+    path("language/", views.LessonViews.language_reference, name="language_reference"),]

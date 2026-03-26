@@ -12,6 +12,7 @@ A Python Bootstrap project using Django
 - Run `pip install django-debug-toolbar` to install the debug toolbar
 - Run `pip install django-cors-headers` to install Django CORS headers
 - Add PATH 'C:\Users\<user>\AppData\Local\Python\pythoncore-3.14-64\Scripts' for 'django-admin' command
+# TODO Replace above with pip install -r requirements.txt
 
 ## RUNNING
 - Change folder to 'api'
