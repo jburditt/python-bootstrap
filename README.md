@@ -1,5 +1,7 @@
 # PYTHON DJANGO/FLASK REACT DEMO
 
+A quick and dirty learning experiment of Django, Flask, and React; glued together. Please do not judge some of the poor design decisions made, this was meant to experiment and learn Python and throw a few concepts together. At some point, I will clean my mess up but it won't be today.
+
 [Azure Hosted Demo](https://polite-ocean-07716e61e.4.azurestaticapps.net/) - Backend not deployed [yet], just React UI
 
 ![ScreenShot](/screenshot.png)
@@ -16,7 +18,7 @@
 - Polls tutorial implemented from Python documentation
 - File and console logging
 - Terraform infrastructure deployment
-- Basic Github CI/CD
+- Basic Github CI/CD (missing Frontend CI/CD and only one environment, currently)
 
 ## TODO
 - Replace Django SQLite with PostgreSQL

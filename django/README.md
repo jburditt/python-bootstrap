@@ -26,3 +26,5 @@ A Python Bootstrap project using Django
 - Add app `py manage.py startapp polls`
 - Add database migration `py manage.py makemigrations`
 - Run database migrations `py manage.py migrate`
+- Create Azure Functions app, run inside django folder `func init functions --worker-runtime python --model V2`
+- Create Azure Functions http trigger function `func new --template "Http Trigger" --name UserSearch --language python --authlevel function`
