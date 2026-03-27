@@ -38,6 +38,6 @@ A quick and dirty learning experiment of Django, Flask, and React; glued togethe
 - OAuth authentication -> Auth guard, Azure AD
 - Dependency Injection -> Logging service, Toast service
 - Datepicker
-- OData query -> Query database using OData .NET EF controllers
+- OData query -> Query database using OData or equivalent controllers
 - SurveyJS -> Automate creating form from model, and loading form from database
 - OpenAPI generate -> Generate Angular API services from OpenAPI spec
