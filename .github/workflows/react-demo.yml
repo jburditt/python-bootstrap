@@ -1,13 +1,13 @@
-name: Deploy Python Bootstrap to Azure Static Web App
+name: Deploy React Demo to Azure Static Web App - stapp-python-bootstrap
 
 on:
   push:
     branches:
-      - main
+      - main_MOVE_THIS_TO_REACT_REPO
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - main
+      - main_MOVE_THIS_TO_REACT_REPO
 
 env:
   HUGO_VERSION: 0.146.7
