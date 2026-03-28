@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-4rq(m@_6^k5(%i+&2%=i#wppfvz^+f)6w@&6$f(d3rclsng5hs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "webapp-python-bootstrap.azurewebsites.net",
+]
 
 INTERNAL_IPS = [
     "127.0.0.1",
