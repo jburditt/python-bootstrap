@@ -1,2 +1,6 @@
 terraform/.terraform/
 .vscode/
+django/functions/
+*.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup

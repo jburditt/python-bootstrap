@@ -5,10 +5,30 @@ resource "azurerm_resource_group" "rg" {
 
 # Static Web App
 
-resource "azurerm_static_web_app" "static_web_app_django" {
-  name                = "stapp-${var.project}-django"
+resource "azurerm_service_plan" "service_plan" {
+  name                = "webapp-asp-${var.project}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
+  os_type             = "Linux"
+  sku_name            = "F1"
+}
+
+resource "azurerm_linux_web_app" "web_app" {
+  name                = "webapp-${var.project}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  service_plan_id     = azurerm_service_plan.service_plan.id
+  depends_on          = [azurerm_service_plan.service_plan]
+  
+  site_config {
+    always_on         = false
+    application_stack {
+      python_version  = "3.12"    
+    }
+    cors {
+      allowed_origins = ["*"]
+    }
+  }
 
   # app_settings = {
   #   "SqlDbConnectionString" = format(
