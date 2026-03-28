@@ -1,6 +1,11 @@
 # static web app
 
-# Output the Static Web App deployment token (sensitive)
+output "deployment_token_django" {
+  description = "The Django deployment token for GitHub Actions"
+  value       = azurerm_static_web_app.static_web_app_django.api_key
+  sensitive   = true
+}
+
 output "deployment_token" {
   description = "The deployment token for GitHub Actions"
   value       = azurerm_static_web_app.static_web_app.api_key

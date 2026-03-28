@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "rg" {
 
 # Static Web App
 
-resource "azurerm_static_web_app" "static_web_app" {
-  name                = "stapp-${var.project}"
+resource "azurerm_static_web_app" "static_web_app_django" {
+  name                = "stapp-${var.project}-django"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -19,6 +19,12 @@ resource "azurerm_static_web_app" "static_web_app" {
   #     azurerm_mssql_server.sql_server.administrator_login_password
   #   )
   # }
+}
+
+resource "azurerm_static_web_app" "static_web_app" {
+  name                = "stapp-${var.project}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 }
 
 # Sql Database

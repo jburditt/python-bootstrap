@@ -16,7 +16,8 @@ terraform apply -auto-approve
 terraform destroy
 ```
 
-## Deployment Token
+## Deployment Token and URL for CORS
 ```bash
+terraform output deployment_token_django
 terraform output deployment_token
 ```

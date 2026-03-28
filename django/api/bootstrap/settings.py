@@ -140,6 +140,7 @@ STATIC_URL = 'static/'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'https://polite-ocean-07716e61e.4.azurestaticapps.net',
 ]
 
 LOGGING = {
